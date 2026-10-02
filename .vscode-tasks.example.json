@@ -1,0 +1,91 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Jira MCP: Build",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "build"],
+      "options": {
+        "cwd": "${workspaceFolder}/tools/jira-mcp-server"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Jira MCP: Start Server",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "dev"],
+      "options": {
+        "cwd": "${workspaceFolder}/tools/jira-mcp-server"
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^.*$",
+          "file": 1,
+          "location": 2,
+          "message": 3
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*$",
+          "endsPattern": "^.*Server started.*$"
+        }
+      },
+      "presentation": {
+        "group": "jira-mcp",
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Jira MCP: Install Dependencies",
+      "type": "shell",
+      "command": "npm",
+      "args": ["install"],
+      "options": {
+        "cwd": "${workspaceFolder}/tools/jira-mcp-server"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Jira MCP: Setup",
+      "type": "shell",
+      "command": "bash",
+      "args": ["setup.sh"],
+      "options": {
+        "cwd": "${workspaceFolder}/tools/jira-mcp-server"
+      },
+      "presentation": {
+        "group": "jira-mcp",
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Jira MCP: Test Connection",
+      "type": "shell",
+      "command": "echo",
+      "args": [
+        "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getIssue\",\"params\":{\"issueKey\":\"STUDY-11144\"}}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/tools/jira-mcp-server"
+      },
+      "presentation": {
+        "group": "jira-mcp",
+        "reveal": "always"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

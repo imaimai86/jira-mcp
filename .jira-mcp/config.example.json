@@ -1,0 +1,6 @@
+{
+    "baseUrl": "https://jira.devops.medable.com",
+    "email": "user.name@medable.com",
+    "token": "Token_from:'https://jira.devops.medable.com/secure/ViewProfile.jspa?selectedTab=com.atlassian.pats.pats-plugin:jira-user-personal-access-tokens'"
+}
+  

@@ -1,0 +1,22 @@
+// VS Code settings template for Jira MCP Server integration
+// Add this to your .vscode/settings.json
+
+{
+  // MCP Servers Configuration
+  "modelContext.servers": {
+    "jira": {
+      "command": "node",
+      "args": [
+        "/path/to/root/jira-mcp-server/dist/index.js"
+      ],
+      "env": {
+        "JIRA_CONFIG": "${workspaceFolder}/.jira-mcp/config.json"
+      }
+    }
+  },
+
+  // Optional: Configure Copilot to use Jira MCP Server
+  "github.copilot.advanced": {
+    "allow_quantized_models": true
+  }
+}
